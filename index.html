@@ -115,7 +115,7 @@
         const t = translations[lang];
         document.querySelector(".and").textContent = t.and;
         document.querySelector(".details").innerHTML = `${t.date} <br /> ${t.location}`;
-        document.querySelector(".tagline").innerHTML = `<span class="label">${t.saveTheDate}</span> ${t.tagline}`;
+        document.querySelector(".tagline").innerHTML = `<span class="label">${t.saveTheDate}</span> <span>${t.tagline}</span>`;
       }
 
       const browserLang = navigator.language.slice(0, 2);

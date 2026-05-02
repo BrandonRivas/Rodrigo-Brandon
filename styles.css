@@ -146,6 +146,7 @@ body {
   animation: sway 5s ease-in-out infinite 0.9s;
 }
 .lang-switcher {
+  display: flex;
   gap: 0.5rem;
   padding-bottom: 0.8rem;
 }
