@@ -23,6 +23,21 @@ body {
   font-family: var(--font-main);
   color: var(--cream);
 }
+.enter-screen {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  font-family: var(--font-main);
+  font-size: 1.5rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  z-index: 100;
+}
 .banner {
   width: 100%;
   display: flex;

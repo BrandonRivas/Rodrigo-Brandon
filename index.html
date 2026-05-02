@@ -21,8 +21,11 @@
     />
   </head>
   <body>
-    <audio id="big-music" autoplay loop>
-      <source src="Sound/Wind.mp3" type="audio/mpeg" />
+    <div class="enter-screen" id="enter-screen">
+      <p><img src="Images/Subtract.svg" alt="" /></p>
+    </div>
+    <audio id="wind" autoplay loop>
+      <source src="Sound/Wind.m4a" type="audio/mpeg" />
     </audio>
     <audio id="background" autoplay loop>
       <source src="Sound/Amor Prohibido.mp3" type="audio/mpeg" />
@@ -61,7 +64,7 @@
     </div>
     <!-- prettier-ignore -->
     <script>
-        const bgMusic = document.getElementById("big-music");  
+        const bgMusic = document.getElementById("wind");  
   const background = document.getElementById("background"); 
   bgMusic.volume = 0.3;
   background.volume = 0;                 
@@ -70,9 +73,10 @@
                                          
   document.addEventListener("click", () => {            
     if (audioStarted) return;            
-    audioStarted = true;                 
+    audioStarted = true;  
+        document.getElementById("enter-screen").style.display = "none";             
     bgMusic.play();                      
-    background.play();                   
+    background.play();                                
     let volume = 0;                      
     setTimeout(() => {                   
       const fadeIn = setInterval(() => { 
@@ -83,7 +87,7 @@
           clearInterval(fadeIn);         
         }                                
       }, 1000);   
-    }, 5500);                            
+    }, 700);                            
   });
 
       const translations = {
