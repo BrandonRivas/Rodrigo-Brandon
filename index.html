@@ -94,18 +94,21 @@
         en: {
           and: "and",
           date: "October 9th, 2027",
+          location: "Querétaro, Mexico",
           saveTheDate: "Save the Date",
           tagline: "We can't wait to celebrate with you!",
         },
         fr: {
           and: "et",
           date: "9 octobre 2027",
+          location: "Querétaro, Mexique",
           saveTheDate: "Réservez la date",
           tagline: "Nous avons hâte de célébrer avec vous !",
         },
         es: {
           and: "y",
           date: "9 de octubre de 2027",
+          location: "Querétaro, México",
           saveTheDate: "Reserva la fecha",
           tagline: "¡Tenemos muchas ganas de celebrar contigo!",
         },
@@ -114,7 +117,7 @@
       function setLang(lang) {
         const t = translations[lang];
         document.querySelector(".and").textContent = t.and;
-        document.querySelector(".details").innerHTML = `${t.date} <br /> Querétaro, Mexico`;
+        document.querySelector(".details").innerHTML = `${t.date} <br /> ${t.location}`;
         document.querySelector(".tagline").innerHTML = `<span class="label">${t.saveTheDate}</span> ${t.tagline}`;
       }
 
