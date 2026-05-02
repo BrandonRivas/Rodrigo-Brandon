@@ -1,0 +1,128 @@
+:root {
+  --font-main: "Aboreto", system-ui;
+  --dark-green: #1f2a24;
+  --dark-burgundy: #4a0d16;
+  --terracotta: #9b4a2f;
+  --gold: #f9c22e;
+  --cream: #e7ddcf;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url("Images/Background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-main);
+  color: var(--cream);
+}
+.banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+  margin-top: -9px;
+}
+
+.banner img {
+  width: auto;
+  transform-origin: top center;
+}
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.names {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.and {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  letter-spacing: 0.4em;
+  display: block;
+  margin: 0.2em 0;
+}
+
+.details {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+  line-height: 1.8;
+}
+
+.tagline {
+  margin-top: 2.5rem;
+  font-size: clamp(0.75em, 2vw, 1rem);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  line-height: 2;
+}
+
+.label {
+  font-weight: 600;
+  display: block;
+}
+
+@keyframes sway {
+  0% {
+    transform: rotate(-3deg) skewX(2deg) translateY(0px);
+  }
+  25% {
+    transform: rotate(2deg) skewX(-3deg) translateY(-4px);
+  }
+  50% {
+    transform: rotate(4deg) skewX(2deg) translateY(-2px);
+  }
+  75% {
+    transform: rotate(1deg) skewX(-2deg) translateY(-5px);
+  }
+  100% {
+    transform: rotate(-3deg) skewX(2deg) translateY(0px);
+  }
+}
+
+.banner img:nth-child(1) {
+  animation: sway 4.8s ease-in-out infinite;
+}
+.banner img:nth-child(2) {
+  animation: sway 4.2s ease-in-out infinite 0.3s;
+}
+.banner img:nth-child(3) {
+  animation: sway 5.2s ease-in-out infinite 0.6s;
+}
+.banner img:nth-child(4) {
+  animation: sway 4.5s ease-in-out infinite 0.1s;
+}
+.banner img:nth-child(5) {
+  animation: sway 6.5s ease-in-out infinite 0.5s;
+}
+.banner img:nth-child(6) {
+  animation: sway 4.9s ease-in-out infinite 0.2s;
+}
+.banner img:nth-child(7) {
+  animation: sway 4.7s ease-in-out infinite 0.4s;
+}
+.banner img:nth-child(8) {
+  animation: sway 4.3s ease-in-out infinite 0.7s;
+}
+.banner img:nth-child(9) {
+  animation: sway 5s ease-in-out infinite 0.9s;
+}

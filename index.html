@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Rodrigo & Brandon — Save the Date</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <audio id="big-music" autoplay loop>
+      <source src="Sound/Wind.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="background" autoplay loop>
+      <source src="Sound/Amor Prohibido.mp3" type="audio/mpeg" />
+    </audio>
+    <div class="banner">
+      <img src="Images/Papel_2.svg" alt="" />
+      <img src="Images/Papel_1.svg" alt="" />
+      <img src="Images/Papel_2.svg" alt="" />
+      <img src="Images/Papel_3.svg" alt="" />
+      <img src="Images/Papel_4.svg" alt="" />
+      <img src="Images/Papel_5.svg" alt="" />
+      <img src="Images/Papel_6.svg" alt="" />
+      <img src="Images/Papel_7.svg" alt="" />
+      <img src="Images/Papel_2.svg" alt="" />
+    </div>
+    <div class="content">
+      <div class="names">
+        Rodrigo
+        <span class="and">and</span>
+        Brandon
+      </div>
+      <div class="details">
+        October 9th, 2027 <br />
+        Querétaro, Mexico
+      </div>
+
+      <div class="tagline">
+        <span class="label">Save the Date</span>
+        We can't wait to celebrate with you!
+      </div>
+    </div>
+    <script>
+      const bgMusic = document.getElementById("big-music");
+      bgMusic.volume = 0.3;
+
+      const background = document.getElementById("background");
+      background.volume = 0;
+
+      let volume = 0;
+      setTimeout(() => {
+        const fadeIn = setInterval(() => {
+          if (volume < 0.3) {
+            volume += 0.01;
+            background.volume = volume;
+          } else {
+            clearInterval(fadeIn);
+          }
+        }, 1000);
+      }, 5500);
+    </script>
+  </body>
+</html>
