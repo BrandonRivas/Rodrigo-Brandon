@@ -52,6 +52,7 @@ body {
   letter-spacing: 0.25em;
   line-height: 1.2;
   text-transform: uppercase;
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
 }
 .and {
   font-size: clamp(1.2rem, 4vw, 2rem);
@@ -66,14 +67,16 @@ body {
   text-transform: uppercase;
   margin-top: 1.5rem;
   line-height: 1.8;
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .tagline {
   margin-top: 2.5rem;
-  font-size: clamp(0.75em, 2vw, 1rem);
+  font-size: clamp(0.9em, 2vw, 1.1rem);
   letter-spacing: 0.3em;
   text-transform: uppercase;
   line-height: 2;
+  text-shadow: 0px 2px 12px rgba(0, 0, 0, 0.8);
 }
 
 .label {
@@ -125,4 +128,27 @@ body {
 }
 .banner img:nth-child(9) {
   animation: sway 5s ease-in-out infinite 0.9s;
+}
+.lang-switcher {
+  gap: 0.5rem;
+  padding-bottom: 0.8rem;
+}
+
+.lang-switcher button {
+  background: transparent;
+  border: 1px solid var(--cream);
+  color: var(--cream);
+  font-family: var(--font-main);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.lang-switcher button:hover {
+  background: var(--cream);
+  color: var(--dark-green);
+  opacity: 1;
 }

@@ -11,6 +11,14 @@
       href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg          
+  xmlns=%22http://www.w3.org/2000/svg%22 
+  viewBox=%220 0 100 100%22><text        
+  y=%22.9em%22    
+  font-size=%2290%22>💍</text></svg>"
+    />
   </head>
   <body>
     <audio id="big-music" autoplay loop>
@@ -46,24 +54,72 @@
         We can't wait to celebrate with you!
       </div>
     </div>
+    <div class="lang-switcher">
+      <button onclick="setLang('en')">EN</button>
+      <button onclick="setLang('fr')">FR</button>
+      <button onclick="setLang('es')">ES</button>
+    </div>
+    <!-- prettier-ignore -->
     <script>
-      const bgMusic = document.getElementById("big-music");
-      bgMusic.volume = 0.3;
+        const bgMusic = document.getElementById("big-music");  
+  const background = document.getElementById("background"); 
+  bgMusic.volume = 0.3;
+  background.volume = 0;                 
+                                         
+  let audioStarted = false;              
+                                         
+  document.addEventListener("click", () => {            
+    if (audioStarted) return;            
+    audioStarted = true;                 
+    bgMusic.play();                      
+    background.play();                   
+    let volume = 0;                      
+    setTimeout(() => {                   
+      const fadeIn = setInterval(() => { 
+        if (volume < 0.3) {              
+          volume += 0.01;                
+          background.volume = volume;    
+        } else {                         
+          clearInterval(fadeIn);         
+        }                                
+      }, 1000);   
+    }, 5500);                            
+  });
 
-      const background = document.getElementById("background");
-      background.volume = 0;
+      const translations = {
+        en: {
+          and: "and",
+          date: "October 9th, 2027",
+          saveTheDate: "Save the Date",
+          tagline: "We can't wait to celebrate with you!",
+        },
+        fr: {
+          and: "et",
+          date: "9 octobre 2027",
+          saveTheDate: "Réservez la date",
+          tagline: "Nous avons hâte de célébrer avec vous !",
+        },
+        es: {
+          and: "y",
+          date: "9 de octubre de 2027",
+          saveTheDate: "Reserva la fecha",
+          tagline: "¡Tenemos muchas ganas de celebrar contigo!",
+        },
+      };
 
-      let volume = 0;
-      setTimeout(() => {
-        const fadeIn = setInterval(() => {
-          if (volume < 0.3) {
-            volume += 0.01;
-            background.volume = volume;
-          } else {
-            clearInterval(fadeIn);
-          }
-        }, 1000);
-      }, 5500);
+      function setLang(lang) {
+        const t = translations[lang];
+        document.querySelector(".and").textContent = t.and;
+        document.querySelector(".details").innerHTML = `${t.date} <br /> Querétaro, Mexico`;
+        document.querySelector(".tagline").innerHTML = `<span class="label">${t.saveTheDate}</span> ${t.tagline}`;
+      }
+
+      const browserLang = navigator.language.slice(0, 2);
+      if (translations[browserLang]) {
+        setLang(browserLang);
+      } else {
+        setLang("en");
+      }
     </script>
   </body>
 </html>
