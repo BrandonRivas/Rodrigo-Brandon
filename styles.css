@@ -184,3 +184,9 @@ body {
   color: var(--dark-green);
   opacity: 1;
 }
+
+.lang-switcher button.active {
+  background: var(--cream);
+  color: var(--dark-green);
+  opacity: 1;
+}

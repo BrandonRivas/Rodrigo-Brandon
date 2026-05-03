@@ -55,37 +55,36 @@
       </div>
     </div>
     <div class="lang-switcher">
-      <button onclick="setLang('en')">EN</button>
-      <button onclick="setLang('fr')">FR</button>
-      <button onclick="setLang('es')">ES</button>
+      <button onclick="setLang('en', event)">EN</button>
+      <button onclick="setLang('fr', event)">FR</button>
+      <button onclick="setLang('es', event)">ES</button>
     </div>
-    <!-- prettier-ignore -->
     <script>
-        const bgMusic = document.getElementById("wind");  
-  const background = document.getElementById("background"); 
-  bgMusic.volume = 0.3;
-  background.volume = 0;                 
-                                         
-  let audioStarted = false;              
-                                         
-  document.addEventListener("click", () => {            
-    if (audioStarted) return;            
-    audioStarted = true;  
-        document.getElementById("enter-screen").style.display = "none";             
-    bgMusic.play();                      
-    background.play();                                
-    let volume = 0;                      
-    setTimeout(() => {                   
-      const fadeIn = setInterval(() => { 
-        if (volume < 0.3) {              
-          volume += 0.01;                
-          background.volume = volume;    
-        } else {                         
-          clearInterval(fadeIn);         
-        }                                
-      }, 1000);   
-    }, 700);                            
-  });
+      const bgMusic = document.getElementById("wind");
+      const background = document.getElementById("background");
+      bgMusic.volume = 0.3;
+      background.volume = 0;
+
+      let audioStarted = false;
+
+      document.addEventListener("click", () => {
+        if (audioStarted) return;
+        audioStarted = true;
+        document.getElementById("enter-screen").style.display = "none";
+        bgMusic.play();
+        background.play();
+        let volume = 0;
+        setTimeout(() => {
+          const fadeIn = setInterval(() => {
+            if (volume < 0.3) {
+              volume += 0.01;
+              background.volume = volume;
+            } else {
+              clearInterval(fadeIn);
+            }
+          }, 1000);
+        }, 700);
+      });
 
       const translations = {
         en: {
@@ -114,8 +113,20 @@
       function setLang(lang) {
         const t = translations[lang];
         document.querySelector(".and").textContent = t.and;
-        document.querySelector(".details").innerHTML = `${t.date} <br /> ${t.location}`;
-        document.querySelector(".tagline").innerHTML = `<span class="label">${t.saveTheDate}</span> <span>${t.tagline}</span>`;
+        document.querySelector(".details").innerHTML =
+          `${t.date} <br /> ${t.location}`;
+        document.querySelector(".tagline").innerHTML =
+          `<span class="label">${t.saveTheDate}</span> <span>${t.tagline}</span>`;
+        document
+          .querySelectorAll(".lang-switcher button")
+          .forEach((btn) => btn.classList.remove("active"));
+        if (event) {
+          event.target.classList.add("active");
+        } else {
+          document
+            .querySelector(`.lang-switcher button[onclick*="'${lang}'"]`)
+            .classList.add("active");
+        }
       }
 
       const browserLang = navigator.language.slice(0, 2);
