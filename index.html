@@ -67,10 +67,15 @@
 
       let audioStarted = false;
 
-      document.addEventListener("click", () => {
+      document.addEventListener("click", (e) => {
         if (audioStarted) return;
         audioStarted = true;
         document.getElementById("enter-screen").style.display = "none";
+        const btn = e.target.closest(".lang-switcher button");
+        if (btn) {
+          const match = btn.getAttribute("onclick").match(/'(\w+)'/);
+          if (match) setLang(match[1], { currentTarget: btn });
+        }
         document
           .querySelectorAll(".banner img")
           .forEach((img) => (img.style.animationPlayState = "running"));
