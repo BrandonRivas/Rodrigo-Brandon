@@ -194,6 +194,7 @@ body {
   cursor: pointer;
   opacity: 0.8;
   transition: opacity 0.2s;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .lang-switcher button.active {
@@ -202,17 +203,15 @@ body {
   opacity: 1;
 }
 
+.lang-switcher button:focus,
+.lang-switcher button:focus-visible {
+  outline: none;
+}
+
 @media (hover: hover) {
   .lang-switcher button:hover {
     background: var(--cream);
     color: var(--dark-green);
     opacity: 1;
   }
-}
-
-.lang-switcher button:focus-visible:not(.active) {
-  outline: none;
-  background: transparent;
-  color: var(--cream);
-  opacity: 0.8;
 }

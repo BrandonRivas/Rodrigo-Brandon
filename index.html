@@ -21,12 +21,8 @@
     <div class="enter-screen" id="enter-screen">
       <p><img src="Images/Subtract.svg" alt="" /></p>
     </div>
-    <audio id="wind" autoplay loop>
-      <source src="Sound/Wind2.m4a" type="audio/mp4" />
-    </audio>
-    <audio id="background" autoplay loop>
-      <source src="Sound/Amor Prohibido.mp3" type="audio/mpeg" />
-    </audio>
+    <audio id="wind" loop></audio>
+    <audio id="background" loop></audio>
     <div class="banner">
       <img src="Images/Papel_2.svg" alt="" />
       <img src="Images/Papel_1.svg" alt="" />
@@ -71,7 +67,8 @@
         if (audioStarted) return;
         audioStarted = true;
         document.getElementById("enter-screen").style.display = "none";
-        const btn = e.target.closest(".lang-switcher button");
+        const underlay = document.elementFromPoint(e.clientX, e.clientY);
+        const btn = underlay && underlay.closest(".lang-switcher button");
         if (btn) {
           const match = btn.getAttribute("onclick").match(/'(\w+)'/);
           if (match) setLang(match[1], { currentTarget: btn });
@@ -79,6 +76,10 @@
         document
           .querySelectorAll(".banner img")
           .forEach((img) => (img.style.animationPlayState = "running"));
+        bgMusic.src = "Sound/Wind2.m4a";
+        background.src = "Sound/Amor Prohibido.mp3";
+        bgMusic.load();
+        background.load();
         bgMusic.play();
         background.play();
         let volume = 0;
@@ -135,6 +136,12 @@
               `.lang-switcher button[onclick*="'${lang}'"]`,
             );
         if (activeBtn) activeBtn.classList.add("active");
+        document.body.focus();
+        // force repaint on mobile
+        document.querySelector(".lang-switcher").style.transform = "translateZ(0)";
+        requestAnimationFrame(() => {
+          document.querySelector(".lang-switcher").style.transform = "";
+        });
       }
 
       const browserLang = navigator.language.slice(0, 2);
