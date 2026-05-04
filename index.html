@@ -126,6 +126,16 @@
         document
           .querySelector(`.lang-switcher button[onclick*="'${lang}'"]`)
           .classList.add("active");
+        if (event) {
+          event.target.classList.add("active");
+        } else {
+          document
+            .querySelector(`.lang-switcher button[onclick*="'${lang}'"]`)
+            .classList.add("active");
+        }
+        document
+          .querySelector(`.lang-switcher button[onclick*="'${lang}'"]`)
+          .classList.add("active");
       }
 
       const browserLang = navigator.language.slice(0, 2);
