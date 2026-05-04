@@ -207,3 +207,11 @@ body {
   color: var(--dark-green);
   opacity: 1;
 }
+
+@media (hover: none) {
+  .lang-switcher button:hover {
+    background: transparent;
+    color: var(--cream);
+    opacity: 0.8;
+  }
+}
