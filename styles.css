@@ -210,7 +210,7 @@ body {
   }
 }
 
-.lang-switcher button:focus {
+.lang-switcher button:focus-visible {
   outline: none;
   background: transparent;
   color: var(--cream);
@@ -218,7 +218,7 @@ body {
 }
 
 .lang-switcher button.active,
-.lang-switcher button.active:focus {
+.lang-switcher button.active:focus-visible {
   background: var(--cream);
   color: var(--dark-green);
   opacity: 1;
