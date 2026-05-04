@@ -196,13 +196,29 @@ body {
   transition: opacity 0.2s;
 }
 
-.lang-switcher button:hover {
+.lang-switcher button.active {
   background: var(--cream);
   color: var(--dark-green);
   opacity: 1;
 }
 
-.lang-switcher button.active {
+@media (hover: hover) {
+  .lang-switcher button:hover {
+    background: var(--cream);
+    color: var(--dark-green);
+    opacity: 1;
+  }
+}
+
+.lang-switcher button:focus {
+  outline: none;
+  background: transparent;
+  color: var(--cream);
+  opacity: 0.8;
+}
+
+.lang-switcher button.active,
+.lang-switcher button.active:focus {
   background: var(--cream);
   color: var(--dark-green);
   opacity: 1;
