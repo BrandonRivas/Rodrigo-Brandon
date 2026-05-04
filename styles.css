@@ -11,12 +11,19 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-body {
-  min-height: 100vh;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
   background-image: url("Images/background.webp");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  transform: translateZ(0);
+  z-index: -1;
+}
+body {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,6 +58,7 @@ body {
   width: auto;
   transform-origin: top center;
   user-select: none;
+  animation-play-state: paused;
 }
 .content {
   flex: 1;

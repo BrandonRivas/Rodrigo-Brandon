@@ -71,6 +71,10 @@
         if (audioStarted) return;
         audioStarted = true;
         document.getElementById("enter-screen").style.display = "none";
+        document.getElementById("enter-screen").style.display = "none";
+        document
+          .querySelectorAll(".banner img")
+          .forEach((img) => (img.style.animationPlayState = "running"));
         bgMusic.play();
         background.play();
         let volume = 0;
