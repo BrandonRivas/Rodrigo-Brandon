@@ -24,6 +24,7 @@ body::before {
   z-index: -1;
 }
 body {
+  background-color: var(--terracotta);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
