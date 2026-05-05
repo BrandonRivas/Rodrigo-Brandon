@@ -15,6 +15,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
+  background-color: var(--terracotta);
   background-image: url("Images/background.webp");
   background-size: cover;
   background-repeat: no-repeat;
